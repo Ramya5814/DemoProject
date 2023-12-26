@@ -1,0 +1,6 @@
+C:\Users\BalegarR\source\repos\ConsoleApp2\ConsoleApp2\bin\Release\ConsoleApp2.exe.config
+C:\Users\BalegarR\source\repos\ConsoleApp2\ConsoleApp2\bin\Release\ConsoleApp2.exe
+C:\Users\BalegarR\source\repos\ConsoleApp2\ConsoleApp2\bin\Release\ConsoleApp2.pdb
+C:\Users\BalegarR\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\SampleApp.csproj.CoreCompileInputs.cache
+C:\Users\BalegarR\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\ConsoleApp2.exe
+C:\Users\BalegarR\source\repos\ConsoleApp2\ConsoleApp2\obj\Release\ConsoleApp2.pdb
