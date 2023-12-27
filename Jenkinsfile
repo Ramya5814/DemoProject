@@ -7,10 +7,7 @@ pipeline {
             steps 
             {
                echo "Calling single line batch command"
-               dir("BuildTools")
-                {
-                  bat "BuildScript.bat"
-                }
+               
             }
         }
         stage('Test') 
