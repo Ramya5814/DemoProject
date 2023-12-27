@@ -7,10 +7,13 @@ pipeline {
             steps 
             {
                echo "Calling batch Script"
-                script {
-                    // Use the relativePath step to specify the relative path to the batch file
-                    def batchFilePath = bat(script: 'echo %CD%', returnStatus: true).trim() + '\\BuildTools\\BuildScript.bat'
-                    bat "${batchFilePath}"
+               script {
+                    // PowerShell script content
+                    def powerShellScript = '''
+                        Write-Host "Hello from PowerShell"
+                        & ".\\BuildTools\\BuildScript.bat"
+                    '''
+                    powershell(script: powerShellScript, label: 'windows')
                 }
             }
         }
