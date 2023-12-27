@@ -7,9 +7,11 @@ pipeline {
             steps 
             {
                echo "Calling batch Script"
-               script 
-                {
-                bat '../BuildTools/BuildScript.bat'
+                script {
+                    // Use the relativePath step to specify the relative path to the batch file
+                    def relativePathToBatchFile = 'BuildTools/BuildScript.bat'
+                    def absolutePathToBatchFile = pwd() + '/' + relativePathToBatchFile
+                    bat "call ${absolutePathToBatchFile}"
                 }
             }
         }
