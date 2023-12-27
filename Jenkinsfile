@@ -6,8 +6,11 @@ pipeline {
         {
             steps 
             {
-               echo "Calling single line batch command"
-               
+               echo "Calling batch Script"
+               script 
+                {
+                bat '../BuildTools/BuildScript.bat'
+                }
             }
         }
         stage('Test') 
