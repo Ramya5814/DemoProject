@@ -7,9 +7,9 @@ pipeline {
             steps 
             {
                echo "Calling batch Script"
-               def currentDirectory = bat(script: 'echo %CD%', returnStatus: true).trim()
-                def batchFilePath = currentDirectory + '\\BuildTools\\BuildScript.bat'
-                bat "${batchFilePath}"
+                    def currentDirectory = bat(script: 'echo %CD%', returnStatus: true).trim()
+                    def batchFilePath = "${currentDirectory}\\BuildTools\\BuildScript.bat"
+                    bat script: batchFilePath, returnStatus: true
             }
         }
         stage('Test') 
