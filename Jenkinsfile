@@ -7,14 +7,9 @@ pipeline {
             steps 
             {
                echo "Calling batch Script"
-               script {
-                    // PowerShell script content
-                    def powerShellScript = '''
-                        Write-Host "Hello from PowerShell"
-                        & ".\\BuildTools\\BuildScript.bat"
-                    '''
-                    powershell(script: powerShellScript, label: 'windows')
-                }
+               def currentDirectory = bat(script: 'echo %CD%', returnStatus: true).trim()
+                def batchFilePath = currentDirectory + '\\BuildTools\\BuildScript.bat'
+                bat "${batchFilePath}"
             }
         }
         stage('Test') 
