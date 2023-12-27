@@ -2,15 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
+        stage('Build') 
+        {
+            steps 
+            {
                echo "Calling single line batch command"
-               dir("BuildTools"){
-               bat "BuildScript.bat"
+               dir("BuildTools")
+                {
+                  bat "BuildScript.bat"
+                }
             }
         }
-        stage('Test') {
-            steps {
+        stage('Test') 
+        {
+            steps 
+            {
                 echo 'Testing..'
             }
         }
