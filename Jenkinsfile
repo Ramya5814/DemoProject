@@ -3,6 +3,10 @@ pipeline {
         label 'Build Machine - VSIDE 2017'
     }
 
+    tools {
+        // Specify the name of the Git installation configured in Jenkins
+        git 'git'
+    }
     stages {
         stage('Build') 
         {
