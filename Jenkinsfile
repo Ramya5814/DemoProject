@@ -8,9 +8,18 @@ pipeline {
             steps {
                 // This step will use the specified Git installation
                 echo "Calling batch Script"
-                bat 'BuildTools/BuildScript.bat'
+                dir('BuildTools') {
+                bat 'BuildScript.bat'
+                }
             }
             
+        }
+        stage('Archive Artifacts')
+        {
+        archiveArtifacts artifacts: 'Artifacts/*.*',
+                   allowEmptyArchive: true,
+                   fingerprint: true,
+                   onlyIfSuccessful: true
         }
         stage('Test') 
         {
