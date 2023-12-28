@@ -5,7 +5,7 @@ pipeline {
 
     tools {
         // Specify the name of the Git installation configured in Jenkins
-        git 'git'
+        git 'jgit'
     }
     stages {
         stage('Build') 
