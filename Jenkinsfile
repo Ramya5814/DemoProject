@@ -6,10 +6,14 @@ pipeline {
     stages {
         stage('Build') 
         {
+            steps {
+                // This step will use the specified Git installation
+                checkout scm
+            }
             steps 
             {
                echo "Calling batch Script"
-               
+               bat 'BuildTools/BuildScript.bat'
             }
         }
         stage('Test') 
