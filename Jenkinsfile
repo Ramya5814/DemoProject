@@ -1,5 +1,5 @@
 pipeline {
-    gitSource = 'https://github.com/Ramya5814/DemoProject.git'
+    def gitSource = "https://github.com/Ramya5814/DemoProject.git"
     agent {
         label 'Build Machine - VSIDE 2017'
     }
