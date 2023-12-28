@@ -9,9 +9,7 @@ pipeline {
             steps 
             {
                echo "Calling batch Script"
-                script {
-                    bat 'BuildTools/BuildScript.bat'
-                }
+               
             }
         }
         stage('Test') 
