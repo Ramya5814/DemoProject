@@ -9,6 +9,8 @@ pipeline {
             steps {
                 // This step will use the specified Git installation
                 checkout scm
+                echo "Calling batch Script"
+                bat 'BuildTools/BuildScript.bat'
             }
             
         }
