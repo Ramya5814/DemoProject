@@ -1,3 +1,4 @@
+@echo off
 echo ****** Build Script Batch file is called ******
 Set VisualStudio2019Path=C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe
 echo VisualStudio2019Path - %VisualStudio2019Path%
