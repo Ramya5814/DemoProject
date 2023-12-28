@@ -1,11 +1,12 @@
 pipeline {
+    gitSource = 'https://github.com/Ramya5814/DemoProject.git'
     agent {
         label 'Build Machine - VSIDE 2017'
     }
 
     tools {
         // Specify the name of the Git installation configured in Jenkins
-        git 'jgit'
+        git url: "${gitSource}", branch: 'main'
     }
     stages {
         stage('Build') 
