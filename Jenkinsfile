@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'Build Machine - VSIDE 2017'
+    }
 
     stages {
         stage('Build') 
