@@ -17,10 +17,10 @@ pipeline {
         stage('Archive Artifacts')
         {
             steps {
-        archiveArtifacts artifacts: 'Artifacts/*.*',
-                   allowEmptyArchive: true,
-                   fingerprint: true,
-                   onlyIfSuccessful: true
+                archiveArtifacts artifacts: 'Artifacts/*.*',
+                           allowEmptyArchive: true,
+                           fingerprint: true,
+                           onlyIfSuccessful: true
             }
         }
         stage('Test') 
