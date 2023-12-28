@@ -8,8 +8,7 @@ pipeline {
             {
                echo "Calling batch Script"
                 script {
-                    bat """echo %COMPUTERNAME%"""
-                    echo "${winCompName}"
+                    bat 'BuildTools/BuildScript.bat'
                 }
             }
         }
