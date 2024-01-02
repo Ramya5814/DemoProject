@@ -4,11 +4,6 @@ pipeline {
         label 'Build Machine - VSIDE 2017'
     }
     stages {
-        stage('Cleanup') {
-            steps {
-                cleanWs()
-            }
-        }
         stage('Environment Setup') {
             steps {
                 script {
