@@ -1,8 +1,11 @@
 def NUGET_PACKAGES
-def workspace = pwd()
+
 pipeline {
     agent {
         label 'Build Machine - VSIDE 2017'
+    }
+    node('Build Machine - VSIDE 2017') {
+        def workspace = pwd()
     }
     environment {
         WS = "${bat 'cd'}"
