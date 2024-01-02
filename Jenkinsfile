@@ -35,16 +35,12 @@ pipeline {
     post {
         always {
             script {
-                 def emailContent = """
-                    <html>
-                        <body>
-                            <h2>Build Status: ${currentBuild.fullDisplayName}</h2>
-                            <p>Build Number: ${currentBuild.number}</p>
-                            <p>Build URL: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
-                            <p>Custom Message: Your custom message goes here.</p>
-                        </body>
-                    </html>
-                """
+                 // Load the Groovy template file
+                def templateFile = load 'EmailTemplate/groovy-html.template'
+
+                // Generate email content using the template
+                def emailContent = templateFile.generateEmailContent(currentBuild)
+                
                 emailext(
                     subject: "Build Notification: ${currentBuild.fullDisplayName}",
                     body: '''${SCRIPT, template="groovy-html.template"}''',
