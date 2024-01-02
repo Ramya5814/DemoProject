@@ -49,8 +49,6 @@ pipeline {
                     mimeType: 'text/html',
                     to: 'ramyabalegara@gmail.com',
                     replyTo: 'ramyabalegara@gmail.com',
-                    cc: '',
-                    bcc: '',
                     from: 'ramyabalegara@gmail.com'
                 )
             }
