@@ -36,12 +36,12 @@ pipeline {
         always {
             script {
                 emailext(
-                    subject: "Build Notification: Success",
+                    subject: "Build Notification: ${currentBuild.fullDisplayName}",
                     body: '''<html>
                                 <body>
-                                    <h2>Build Status: ${currentBuild.result}</h2>
-                                    <p>Build Number:${currentBuild.number}</p>
-                                    <p>Build URL: <a href="${env.BUILD_URL}">${env.BUILD_URL}</p>
+                                    <h2>Build Status: ${currentBuild.fullDisplayName}</h2>
+                                    <p>Build Number: 7.0.$BUILD_NUMBER.1</p>
+                                    <p>Build URL: <a href="$BUILD_URL">$BUILD_URL</a></p>
                                     <p>Custom Message: Your custom message goes here.</p>
                                 </body>
                             </html>''',
