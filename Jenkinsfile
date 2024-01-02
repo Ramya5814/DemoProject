@@ -47,7 +47,7 @@ pipeline {
                 """
                 emailext(
                     subject: "Build Notification: ${currentBuild.fullDisplayName}",
-                    body:emailContent,
+                    body: '''${SCRIPT, template="groovy-html.template"}''',
                     mimeType: 'text/html',
                     to: 'Ramya.Balegara@unisys.com',
                     replyTo: 'Ramya.Balegara@unisys.com',
