@@ -22,6 +22,8 @@ pipeline {
 
                 bat 'echo %NUGET_PACKAGES%'
                 bat 'echo ${workspace}'
+                bat 'echo %WORKSPACE%'
+                bat 'set'
             }
         }
         stage('Archive Artifacts') {
