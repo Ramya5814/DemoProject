@@ -46,9 +46,10 @@ pipeline {
                                 </body>
                             </html>''',
                     mimeType: 'text/html',
-                    to: 'ramyablgr@gmail.com',
-                    replyTo: 'ramyablgr@gmail.com',
-                    from: 'ramyabalegara@gmail.com'
+                    to: 'Ramya.Balegara@unisys.com',
+                    replyTo: 'Ramya.Balegara@unisys.com',
+                    from: 'Ramya.Balegara@unisys.com',
+                    attachLog: true
                 )
             }
         }
