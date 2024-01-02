@@ -49,9 +49,9 @@ pipeline {
                     subject: "Build Notification: ${currentBuild.fullDisplayName}",
                     body: '''${SCRIPT, template="groovy-html.template"}''',
                     mimeType: 'text/html',
-                    to: 'Ramya.Balegara@unisys.com',
+                    to: 'Ramya.Balegara@unisys.com, Kaveesh.Dashora@unisys.omc',
                     replyTo: 'Ramya.Balegara@unisys.com',
-                    from: 'Ramya.Balegara@unisys.com',
+                    from: 'noreply.singularity@unisys.com',
                     attachLog: true
                 )
             }
