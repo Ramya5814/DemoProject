@@ -1,6 +1,6 @@
 pipeline {
    
-    def gitCred = credentials(''69a57de4-4bd1-413c-8e2d-196071775985')
+    def gitCred = credentials('69a57de4-4bd1-413c-8e2d-196071775985')
     def gitSource = 'https://github.com/Ramya5814/DemoProject.git'
     agent {
         label 'Build Machine - VSIDE 2017'
