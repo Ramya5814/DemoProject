@@ -1,4 +1,6 @@
 pipeline {
+    gitCred = '69a57de4-4bd1-413c-8e2d-196071775985' 
+    gitSource = 'https://github.com/Ramya5814/DemoProject.git'
     agent {
         label 'Build Machine - VSIDE 2017'
     }
@@ -14,6 +16,25 @@ pipeline {
             }
             
         }
+
+        stage ('Update README.md') {
+              echo 'Update the readme.md file'
+              powershell ("Get-Date | Out-File .\\README.md -append")
+        }
+        stage ('Push changes') {
+            withCredentials([usernamePassword(credentialsId: "${gitCred}", usernameVariable: 'Username', passwordVariable: 'PASSWORD')]) 
+            {
+                bat ("""
+                    git config --local user.name ${Username}
+                    git config --local user.email ${Username}@unisys.com
+                    git remote add readmecheck ${gitSource}
+                    git add README.md
+                    git commit -m "Modified README.md" 
+                    git push origin readmecheck
+                """)
+            }
+        }
+        
         stage('Archive Artifacts')
         {
             steps {
