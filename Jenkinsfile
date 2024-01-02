@@ -27,10 +27,13 @@ pipeline {
         }
 
         stage ('Update README.md') {
+           steps {
               echo 'Update the readme.md file'
               powershell ("Get-Date | Out-File .\\README.md -append")
+           }
         }
         stage ('Push changes') {
+           steps {
             withCredentials([usernamePassword(credentialsId: "${jenkinsCredentialsId}", usernameVariable: 'Username', passwordVariable: 'PASSWORD')]) 
             {
                 bat ("""
@@ -42,6 +45,7 @@ pipeline {
                     git push origin readmecheck
                 """)
             }
+           }
         }
         
         stage('Archive Artifacts')
