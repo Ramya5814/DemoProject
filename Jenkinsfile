@@ -8,7 +8,7 @@ pipeline {
             cleanWs()
         }
         stage('Environment Setup') {
-            NUGET_PACKAGES=$WORKSPACE\NuGetPackageCache
+            NUGET_PACKAGES='$WORKSPACE\\NuGetPackageCache'
         }
         stage('Build') {
             steps {
