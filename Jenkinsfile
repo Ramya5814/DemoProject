@@ -35,14 +35,13 @@ pipeline {
     post {
         always {
             script {
-                // Send email notification with HTML content
                 emailext(
                     subject: "Build Notification: Success",
                     body: '''<html>
                                 <body>
                                     <h2>Build Status: Success</h2>
                                     <p>Build Number:Success</p>
-                                    <p>Build URL: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                                    <p>Build URL:</p>
                                     <p>Custom Message: Your custom message goes here.</p>
                                 </body>
                             </html>''',
