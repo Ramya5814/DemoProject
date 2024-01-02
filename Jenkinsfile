@@ -5,7 +5,7 @@ pipeline {
         label 'Build Machine - VSIDE 2017'
     }
     environment {
-        WS = ${bat 'cd'}
+        WS = "${bat 'cd'}"
         NUGET_PACKAGES='$(workspace)\\NuGetPackageCache'
     }
     stages {
