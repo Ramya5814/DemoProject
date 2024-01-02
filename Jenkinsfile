@@ -36,7 +36,7 @@ pipeline {
         always {
             script {
                  // Load the Groovy template file
-                def templateFile = load 'EmailTemplate/groovy-html.template'
+                def templateFile = load './EmailTemplate/groovy-html.template'
 
                 // Generate email content using the template
                 def emailContent = templateFile.generateEmailContent(currentBuild)
