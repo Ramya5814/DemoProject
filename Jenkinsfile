@@ -1,6 +1,6 @@
 pipeline {
-    gitCred = '69a57de4-4bd1-413c-8e2d-196071775985' 
-    gitSource = 'https://github.com/Ramya5814/DemoProject.git'
+    def gitCred = '69a57de4-4bd1-413c-8e2d-196071775985' 
+    def gitSource = 'https://github.com/Ramya5814/DemoProject.git'
     agent {
         label 'Build Machine - VSIDE 2017'
     }
