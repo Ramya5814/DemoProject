@@ -11,7 +11,9 @@ pipeline {
         }
         stage('Environment Setup') {
             steps {
-                NUGET_PACKAGES='$WORKSPACE\\NuGetPackageCache'
+                script {
+                    NUGET_PACKAGES='$WORKSPACE\\NuGetPackageCache'
+                }
             }
         }
         stage('Build') {
