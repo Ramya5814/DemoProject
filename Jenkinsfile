@@ -1,12 +1,12 @@
 def NUGET_PACKAGES
-def WS
+def workspace = pwd()
 pipeline {
     agent {
         label 'Build Machine - VSIDE 2017'
     }
     environment {
-        WS = bat 'cd'
-        NUGET_PACKAGES='$(WS)\\NuGetPackageCache'
+        WS = ${bat 'cd'}
+        NUGET_PACKAGES='$(workspace)\\NuGetPackageCache'
     }
     stages {
         stage('Build') {
@@ -18,7 +18,7 @@ pipeline {
                 }
 
                 bat 'echo %NUGET_PACKAGES%'
-                bat 'echo $(WORKSPACE)'
+                bat 'echo ${workspace}'
             }
         }
         stage('Archive Artifacts') {
