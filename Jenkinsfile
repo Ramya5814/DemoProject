@@ -3,14 +3,10 @@ pipeline {
     agent {
         label 'Build Machine - VSIDE 2017'
     }
+    environment {
+        NUGET_PACKAGES='$WORKSPACE\\NuGetPackageCache'
+    }
     stages {
-        stage('Environment Setup') {
-            steps {
-                script {
-                    NUGET_PACKAGES='$WORKSPACE\\NuGetPackageCache'
-                }
-            }
-        }
         stage('Build') {
             steps {
                 // This step will use the specified Git installation
