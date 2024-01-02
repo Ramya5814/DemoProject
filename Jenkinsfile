@@ -1,21 +1,27 @@
+def NUGET_PACKAGES
 pipeline {
     agent {
         label 'Build Machine - VSIDE 2017'
     }
     stages {
-        stage('Build') 
-        {
+        stage('Cleanup') {
+            cleanWs()
+        }
+        stage('Environment Setup') {
+            NUGET_PACKAGES=$WORKSPACE\NuGetPackageCache
+        }
+        stage('Build') {
             steps {
                 // This step will use the specified Git installation
                 echo "Calling batch Script"
                 dir('BuildTools') {
-                bat 'BuildScript.bat'
+                    bat 'BuildScript.bat'
                 }
+
+                bat 'echo %NUGET_PACKAGES%'
             }
-            
         }
-        stage('Archive Artifacts')
-        {
+        stage('Archive Artifacts') {
             steps {
                 archiveArtifacts artifacts: 'Artifacts/*.*',
                            allowEmptyArchive: false,
@@ -23,8 +29,7 @@ pipeline {
                            onlyIfSuccessful: true
             }
         }
-        stage('Build Notification')
-        {
+        stage('Build Notification') {
             steps {
                 script {
                     emailext(
@@ -39,8 +44,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') 
-        {
+        stage('Test') {
             steps 
             {
                 echo 'Testing..'
