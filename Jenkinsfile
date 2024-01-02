@@ -4,7 +4,7 @@ pipeline {
         label 'Build Machine - VSIDE 2017'
     }
     environment {
-        NUGET_PACKAGES='$(WORKSPACE)\\NuGetPackageCache'
+        NUGET_PACKAGES='$(env.WORKSPACE)\\NuGetPackageCache'
     }
     stages {
         stage('Build') {
