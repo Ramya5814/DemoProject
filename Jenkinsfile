@@ -35,15 +35,9 @@ pipeline {
     post {
         always {
             script {
-                 // Load the Groovy template file
-                def templateFile = load 'groovy-html.template'
-
-                // Generate email content using the template
-                def emailContent = templateFile.generateEmailContent(currentBuild)
-                
                 emailext(
                     subject: "Build Notification: ${currentBuild.fullDisplayName}",
-                    body: '''${SCRIPT, template="groovy-html.template"}''',
+                    body: '''${SCRIPT, template="managed:GroovyConfig"}''',
                     mimeType: 'text/html',
                     to: 'Ramya.Balegara@unisys.com, Kaveesh.Dashora@unisys.com',
                     replyTo: 'Ramya.Balegara@unisys.com',
