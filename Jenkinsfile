@@ -9,7 +9,7 @@ pipeline {
     }
 
    environment {
-        def  jenkinsCredentialsId = credentials('69a57de4-4bd1-413c-8e2d-196071775985')
+        def  jenkinsCredentialsId = credentials('Kaveesh Github Credentials')
         def GIT_REPO_URL = 'https://github.com/Ramya5814/DemoProject.git'
     }
    
