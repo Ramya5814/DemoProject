@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
     	def NuGetExePath='C:\\Program Files (x86)\\NuGet\\nuget.exe'
-	NUGET_PACKAGES='${WORKSAPACE\\NuGetPackageCache}'
+	NUGET_PACKAGES='${WORKSPACE\\NuGetPackageCache}'
     }
     stages {
         stage('Build') {
