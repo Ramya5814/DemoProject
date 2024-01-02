@@ -18,6 +18,8 @@ pipeline {
                 }
 
                 bat 'set'
+		bat 'mkdir %NUGET_PACKAGES%'
+		bat 'cd %NUGET_PACKAGES%'
             }
         }
         stage('Archive Artifacts') {
