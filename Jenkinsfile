@@ -6,6 +6,7 @@ pipeline {
     }
     environment {
     	def NuGetExePath='C:\\Program Files (x86)\\NuGet\\nuget.exe'
+	def NUGET_PACKAGES = '%WORKSPACE%\\NuGetPackageCache'
     }
     stages {
         stage('Build') {
@@ -16,7 +17,6 @@ pipeline {
                     bat 'BuildScript.bat'
                 }
 
-                bat 'set NUGET_PACKAGES=%WORKSPACE%\\NuGetPackageCache'
                 bat 'set'
             }
         }
