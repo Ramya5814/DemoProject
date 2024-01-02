@@ -1,16 +1,11 @@
 def NUGET_PACKAGES
 
-node('Build Machine - VSIDE 2017') {
-       def workspace = pwd()
-}
-
 pipeline {
-    agent {
-        label 'Build Machine - VSIDE 2017'
+	agent {
+		label 'Build Machine - VSIDE 2017'
     }
     environment {
-        WS = "${bat 'cd'}"
-        NUGET_PACKAGES='$(workspace)\\NuGetPackageCache'
+    def NuGetExePath='C:\\Program Files (x86)\\NuGet\\nuget.exe'
     }
     stages {
         stage('Build') {
@@ -21,9 +16,7 @@ pipeline {
                     bat 'BuildScript.bat'
                 }
 
-                bat 'echo %NUGET_PACKAGES%'
-                bat 'echo ${workspace}'
-                bat 'echo %WORKSPACE%'
+                bat 'set NUGET_PACKAGES=%WORKSPACE%\NuGetPackageCache'
                 bat 'set'
             }
         }
