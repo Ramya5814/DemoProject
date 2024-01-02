@@ -16,7 +16,7 @@ pipeline {
                     bat 'BuildScript.bat'
                 }
 
-                bat 'set NUGET_PACKAGES=%WORKSPACE%\NuGetPackageCache'
+                bat 'set NUGET_PACKAGES=%WORKSPACE%\\NuGetPackageCache'
                 bat 'set'
             }
         }
