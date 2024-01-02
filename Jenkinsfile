@@ -37,8 +37,8 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: "${jenkinsCredentialsId}", usernameVariable: 'Username', passwordVariable: 'PASSWORD')]) 
             {
                 bat ("""
-                    git config --local user.name ${Username}
-                    git config --local user.email ${Username}@unisys.com
+                  //  git config --local user.name ${Username}
+                  //  git config --local user.email ${Username}@unisys.com
                     git remote add readmecheck ${GIT_REPO_URL}
                     git add README.md
                     git commit -m "Modified README.md" 
