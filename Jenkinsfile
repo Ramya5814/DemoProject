@@ -66,22 +66,22 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            script {
-                def templateFile = load 'pipeline.groovy'
-                def emailContent = templateFile.generateEmailContent(currentBuild)
+   // post {
+       // always {
+          //  script {
+               // def templateFile = load 'pipeline.groovy'
+               // def emailContent = templateFile.generateEmailContent(currentBuild)
                 
-                emailext(
-                    subject: "Build Notification: ${currentBuild.fullDisplayName}",
-                    body: emailContent,
-                    mimeType: 'text/html',
-                    to: 'Ramya.Balegara@unisys.com, Kaveesh.Dashora@unisys.com',
-                    replyTo: 'Ramya.Balegara@unisys.com',
-                    from: 'noreply.singularity@unisys.com',
-                    attachLog: true
-                )
-            }
-        }
-    }
+                //emailext(
+                  //  subject: "Build Notification: ${currentBuild.fullDisplayName}",
+                  //  body: emailContent,
+                   // mimeType: 'text/html',
+                   // to: 'Ramya.Balegara@unisys.com, Kaveesh.Dashora@unisys.com',
+                    //replyTo: 'Ramya.Balegara@unisys.com',
+                   // from: 'noreply.singularity@unisys.com',
+                 //   attachLog: true
+               // )
+           // }
+        //}
+   // }
 }
