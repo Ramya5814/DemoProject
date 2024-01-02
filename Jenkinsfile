@@ -5,7 +5,7 @@ pipeline {
 		label 'Build Machine - VSIDE 2017'
     }
     environment {
-    def NuGetExePath='C:\\Program Files (x86)\\NuGet\\nuget.exe'
+    	def NuGetExePath='C:\\Program Files (x86)\\NuGet\\nuget.exe'
     }
     stages {
         stage('Build') {
