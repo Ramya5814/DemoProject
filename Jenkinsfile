@@ -33,29 +33,8 @@ pipeline {
                 }
             }
         }
-        stage ('Update README.md') {
-           steps {
-              echo 'Update the readme.md file'
-              powershell ("Get-Date | Out-File .\\README.md -append")
-           }
-        }
-        stage ('Push changes') {
-           steps {
-            withCredentials([usernamePassword(credentialsId: "${jenkinsCredentialsId}", usernameVariable: 'Username', passwordVariable: 'PASSWORD')]) 
-            {
-                bat ("""
-                  //  git config --local user.name ${Username}
-                  //  git config --local user.email ${Username}@unisys.com
-                    git remote add readmecheck ${GIT_REPO_URL}
-                    git add README.md
-                    git commit -m "Modified README.md" 
-                    git push origin readmecheck
-                """)
-            }
-           }
-        }
-        
-        stage('Archive Artifacts')
+
+       stage('Archive Artifacts')
         {
             steps {
                 archiveArtifacts artifacts: 'Artifacts/*.*',
@@ -71,56 +50,28 @@ pipeline {
                 echo 'Testing..'
             }
         }
-    }
+       
+     post {
+        always {
+            script {
 
-post
-   {
-      always
-      {
-         echo 'Executing Post statement..'
-      }
-      success
-      {
-        emailext(
-            subject: "Jenkins Job - Failure",
-            body: "The Jenkins job ${env.JOB_NAME} has failed. Please check the build logs.",
-            to: "Ramya.Balegara@unisys.com",
-            replyTo: 'Ramya.Balegara@unisys.com',
-            from: 'noreply.singularity@unisys.com',
-            attachLog: true
-        )
-     }
-      
-      failure 
-      {
-        emailext(
-            subject: "Jenkins Job - Failure",
-            body: "The Jenkins job ${env.JOB_NAME} has failed. Please check the build logs.",
-            to: "Ramya.Balegara@unisys.com",
-            replyTo: 'Ramya.Balegara@unisys.com',
-            from: 'noreply.singularity@unisys.com',
-            attachLog: true
-        )
-      }
-   }
-
-   
-   // post {
-       // always {
-          //  script {
-               // def templateFile = load 'pipeline.groovy'
-               // def emailContent = templateFile.generateEmailContent(currentBuild)
+               def myScript = load 'pipeline.groovy'
+               myScript.printMessage()
+               
+                def templateFile = load 'pipeline.groovy'
+                def emailContent = templateFile.generateEmailContent(currentBuild)
                 
-                //emailext(
-                  //  subject: "Build Notification: ${currentBuild.fullDisplayName}",
-                  //  body: emailContent,
-                   // mimeType: 'text/html',
-                   // to: 'Ramya.Balegara@unisys.com, Kaveesh.Dashora@unisys.com',
-                    //replyTo: 'Ramya.Balegara@unisys.com',
-                   // from: 'noreply.singularity@unisys.com',
-                 //   attachLog: true
-               // )
-           // }
-        //}
-   // }
+                emailext(
+                    subject: "Build Notification: ${currentBuild.fullDisplayName}",
+                    body: emailContent,
+                    mimeType: 'text/html',
+                    to: 'Ramya.Balegara@unisys.com, 
+                     //Kaveesh.Dashora@unisys.com',
+                    replyTo: 'Ramya.Balegara@unisys.com',
+                    from: 'noreply.singularity@unisys.com',
+                    attachLog: true
+                )
+            }
+        }
+    }
 }
