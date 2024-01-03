@@ -66,6 +66,38 @@ pipeline {
         }
     }
 
+post
+   {
+      always
+      {
+         echo 'Executing Post statement..'
+      }
+      success
+      {
+        emailext(
+            subject: "Jenkins Job - Failure",
+            body: "The Jenkins job ${env.JOB_NAME} has failed. Please check the build logs.",
+            to: "Ramya.Balegara@unisys.com",
+            replyTo: 'Ramya.Balegara@unisys.com',
+            from: 'noreply.singularity@unisys.com',
+            attachLog: true
+        )
+     }
+      
+      failure 
+      {
+        emailext(
+            subject: "Jenkins Job - Failure",
+            body: "The Jenkins job ${env.JOB_NAME} has failed. Please check the build logs.",
+            to: "Ramya.Balegara@unisys.com",
+            replyTo: 'Ramya.Balegara@unisys.com',
+            from: 'noreply.singularity@unisys.com',
+            attachLog: true
+        )
+      }
+   }
+
+   
    // post {
        // always {
           //  script {
