@@ -25,7 +25,14 @@ pipeline {
             }
             
         }
-
+       stage('Load and Execute Script') {
+            steps {
+                script {
+                    def myScript = load 'pipeline.groovy'
+                    myScript.printMessage()
+                }
+            }
+        }
         stage ('Update README.md') {
            steps {
               echo 'Update the readme.md file'
