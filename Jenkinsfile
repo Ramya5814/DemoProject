@@ -50,7 +50,7 @@ pipeline {
                 echo 'Testing..'
             }
         }
-       
+    }
      post {
         always {
             script {
@@ -74,5 +74,4 @@ pipeline {
             }
         }
     }
-}
 }
