@@ -39,7 +39,7 @@ pipeline {
                     subject: "Build Notification: ${currentBuild.fullDisplayName}",
                     body: '''${SCRIPT, template="emailTemplate.template"}''',
                     mimeType: 'text/html',
-                    to: 'Ramya.Balegara@unisys.com', 
+                    to: 'Kaveesh.Dashora@unisys.com', 
                     //Kaveesh.Dashora@unisys.com',
                     replyTo: 'Ramya.Balegara@unisys.com',
                     from: 'noreply.singularity@unisys.com',
