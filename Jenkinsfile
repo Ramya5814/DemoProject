@@ -37,7 +37,7 @@ pipeline {
 
                 emailext(
                     subject: "Build Notification: ${currentBuild.fullDisplayName}",
-                    body: '''${SCRIPT, template="emailTemplate.template"}''',
+                    body: '''${SCRIPT, template="managed:CustomTemplate"}''',
                     mimeType: 'text/html',
                     to: 'Kaveesh.Dashora@unisys.com', 
                     //Kaveesh.Dashora@unisys.com',
