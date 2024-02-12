@@ -33,7 +33,7 @@ pipeline {
     post {
         always {
             script {
-                cleanWs cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, deleteDirs: true
+                //cleanWs cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenSuccess: true, cleanWhenUnstable: true, deleteDirs: true
 
                 emailext(
                     subject: "Build Notification: ${currentBuild.fullDisplayName}",
