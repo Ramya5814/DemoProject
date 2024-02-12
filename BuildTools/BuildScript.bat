@@ -39,6 +39,8 @@ echo NewDate - %NewDate%
 set NewCopyright=2015 - %YY% Unisys Corporation
 echo NewCopyright - %NewCopyright%
 UpdateReadme "%DownloadPath%\Documentation\ReadmeVSIDE.htm" "7.0.%NewBuildNumber%.%NewRevisionNumber%" "%NewDate%" "%NewCopyright%"
+git commit "%DownloadPath%\Documentation\ReadmeVSIDE.htm" -m "Adding Updated Readme"
+git push
 echo ****** Building in 2019 at %date% %time% ******
 echo "%DownloadPath%\SampleApp.sln" - 2019
 "%VisualStudio2019Path%" "%DownloadPath%\SampleApp.sln" /restore /p:AllowUnsafeBlocks=true;Configuration=Release;VisualStudioVersion=16.0 /verbosity:minimal /m
