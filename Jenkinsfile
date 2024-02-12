@@ -16,7 +16,8 @@ pipeline {
         }
 		stage('Update Readme') {
             steps {
-                git credentialsId: '18a8f25b-f3f3-4986-aabc-7c24c11856ac', url: "ssh://git@github.com:Ramya5814/DemoProject.git", branch: $env.BRANCH_NAME
+                def branchName = env.BRANCH_NAME
+                git credentialsId: '18a8f25b-f3f3-4986-aabc-7c24c11856ac', url: "ssh://git@github.com:Ramya5814/DemoProject.git", branch: branchName
                  sh 'git status'                 
             }
         }
